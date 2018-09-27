@@ -1,0 +1,42 @@
+.btnCss {
+    padding-left: 30% !important;
+    width: 50%;
+}
+
+.btnCss>.sapMBtnInner {
+    background: #007cc0;
+}
+
+.newForm {
+    width: 70% !important;
+    padding-left: 30% !important;
+    padding-top: 10% !important;
+}
+
+.newForm .sapUiRFLContainer {
+    width: 100% !important;
+}
+
+.vboxForm {
+    padding-left: 40%;
+}
+
+.hboxForm {
+    padding-left: 30%;
+}
+
+@media screen and (max-width:600px){
+    .vboxForm {
+        padding-left: 0%;
+    }
+    
+    .hboxForm {
+        padding-left: 0%;
+    }
+    .newForm {
+        width: 90% !important;
+        padding-left: 10% !important;
+        padding-top: 5% !important;
+    }
+    
+}
