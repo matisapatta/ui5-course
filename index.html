@@ -5,10 +5,18 @@
         <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
         <link rel="stylesheet" type="text/css" href="./css/app1.css">
 
-        <script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+        <!-- <script 
+            src="https://openui5.hana.ondemand.com/1.38.21/resources/sap-ui-core.js"
             id="sap-ui-bootstrap"
             data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table,sap.ui.ux3"
             data-sap-ui-theme="sap_bluecrystal">
+        </script> -->
+
+        <script 
+        src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+        id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table,sap.ui.ux3"
+        data-sap-ui-theme="sap_bluecrystal">
         </script>
         <!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
@@ -20,13 +28,14 @@
             $.sap.require('sap.m.MessageToast');
 
             sap.ui.localResources("app1");
-            
+            /* Inicio app normal */
+
             var page = sap.ui.view({id:"pageid1", viewName:"app1.view1", type:sap.ui.core.mvc.ViewType.JS});
             var page2 = sap.ui.view({id:"pageid2", viewName:"app1.view2", type:sap.ui.core.mvc.ViewType.JS});
             var page3 = sap.ui.view({id:"pageid3", viewName:"app1.view3", type:sap.ui.core.mvc.ViewType.JS});
             var page4 = sap.ui.view({id:"pageid4", viewName:"app1.view4", type:sap.ui.core.mvc.ViewType.JS});
             var page5 = sap.ui.view({id:"pageid5", viewName:"app1.view5", type:sap.ui.core.mvc.ViewType.JS});
-            
+                        
             var app = new sap.m.App(
                 {
                     initialPage:"pageid1",
@@ -39,6 +48,20 @@
                     ]
                 });
             app.placeAt("content");
+
+            /* Fin app normal */
+
+
+            /* Inicio split app */
+                // var app = new sap.m.SplitApp({
+                //     mode: sap.m.SplitAppMode.ShowHideMode
+                // })
+                // var masterPage = sap.ui.view({id:"masterPage", viewName:"app1.master", type:sap.ui.core.mvc.ViewType.JS});
+                // app.addMasterPage(masterPage)
+                // var detailPage = sap.ui.view({id:"detailPage", viewName:"app1.detail", type:sap.ui.core.mvc.ViewType.JS});
+                // app.addDetailPage(detailPage)
+                // app.placeAt("content");
+            /* Fin split app */
         </script>
     </head>
     <body class="sapUiBody" role="application">

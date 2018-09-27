@@ -1,9 +1,8 @@
 sap.ui.jsfragment("app1.view1", {
     
     createContent: function(oController) {
-        debugger;
         var oItemTemplate = new sap.m.StandardListItem({
-            title:"{Name}",
+            title:"{listpepe>Name}",
             active:true
         });
         var oSelDialog = new sap.m.SelectDialog({
@@ -12,8 +11,9 @@ sap.ui.jsfragment("app1.view1", {
             liveChange:[oController.liveChange1,oController]
         });
 
-        oSelDialog.bindAggregation("items","/names",oItemTemplate);
-        console.log("{Name}","{listpepe>Name}")
+        oSelDialog.bindAggregation("items","listpepe>/names",oItemTemplate);
+        console.log("{Name}","{listpepe>Name}","algo")
+   
         return oSelDialog;
-    }
-})
+    },
+});
