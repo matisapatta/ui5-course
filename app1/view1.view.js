@@ -26,7 +26,7 @@ sap.ui.jsview("app1.view1", {
 		/* Lista simple */
 		var oList = new sap.m.List("list", {
 			headerText: "Animals",
-			itemPress: [oController.listPage,oController]
+			itemPress: [oController.listPage, oController]
 		})
 
 		oList.bindItems({
@@ -35,11 +35,41 @@ sap.ui.jsview("app1.view1", {
 				title: "{Name}",
 				description: "{Place}",
 				type: sap.m.ListType.Navigation,
-				
+
 			})
 		})
 
 		/* Fin Lista simple */
+
+		/* Lista simple con formatter */
+		var oList3 = new sap.m.List("list34", {
+			headerText: "Animals",
+			itemPress: [oController.listPage, oController]
+		})
+
+		oList3.bindItems({
+			path: "/names",
+			template: new sap.m.StandardListItem({
+				title: ({
+					parts: [{
+						path: "Name",
+						type: new sap.ui.model.type.String()
+					},
+					{
+						path: "Place",
+						type: new sap.ui.model.type.String()
+					}
+					],
+					formatter:function(sName,sPlace){
+						return sName + ": " + sPlace;
+					}
+
+				})
+
+			})
+		})
+
+		/* Fin Lista simple con formatter */
 
 		/* Lista nueva */
 		var oList1 = new sap.m.List("list1", {
@@ -146,7 +176,7 @@ sap.ui.jsview("app1.view1", {
 				oColu2,
 				oColu3
 			],
-			cellClick: [oController.tableClick,oController]
+			cellClick: [oController.tableClick, oController]
 		});
 
 		oTable1.bindRows("/names");
@@ -235,7 +265,8 @@ sap.ui.jsview("app1.view1", {
 				oTileContainer1,
 				oGTile,
 				oList1,
-				oBtn2
+				oBtn2,
+				oList3
 			]
 		});
 		return oPage;
