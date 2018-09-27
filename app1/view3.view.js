@@ -14,12 +14,24 @@ sap.ui.jsview("app1.view3", {
         var oLabel = new sap.m.Label({
             text: "{label>/data}"
         })
+
+        var oBtn = new sap.m.Button({
+            text: "Draggable",
+            press: [oController.goToNextPage, oController]
+        }).addEventDelegate({
+            onAfterRendering:function(oBtn){
+                $(oBtn.srcControl.getDomRef()).draggable({
+                    cancel: false
+                })
+            }
+        })
         var oPage =  new sap.m.Page({
             title: "List page",
             showNavButton: true,
             navButtonPress: function (oEvt) { app.back(); },
             content: [
-                oLabel
+                oLabel,
+                oBtn
             ]
         });
         return oPage

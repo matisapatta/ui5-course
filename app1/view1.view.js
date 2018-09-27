@@ -218,6 +218,11 @@ sap.ui.jsview("app1.view1", {
 
 		/* Fin generic Tiles */
 
+		var oBtn2 = new sap.m.Button({
+			text: "Fragment",
+			press: [oController.openFragment, oController]
+		})
+
 		var oPage = new sap.m.Page({
 			title: "A simple app",
 			content: [
@@ -229,7 +234,8 @@ sap.ui.jsview("app1.view1", {
 				oTileContainer,
 				oTileContainer1,
 				oGTile,
-				oList1
+				oList1,
+				oBtn2
 			]
 		});
 		return oPage;

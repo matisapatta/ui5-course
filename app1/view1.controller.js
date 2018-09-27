@@ -42,13 +42,40 @@ sap.ui.controller("app1.view1", {
             ]
 
         }
-        var oModel = new sap.ui.model.json.JSONModel(oData);
 
+        var oData1 = {
+            names: [
+                {
+                    Name: "Dinosaur",
+                    Place: "Mountain"
+                },
+                {
+                    Name: "Shark",
+                    Place: "River"
+                },
+                {
+                    Name: "Elephant",
+                    Place: "Forest"
+                },
+                {
+                    Name: "Dragon",
+                    Place: "Sky"
+                },
+                {
+                    Name: "Wolf",
+                    Place: "Snow"
+                }
+            ]
+
+        }
+        var oModel = new sap.ui.model.json.JSONModel(oData);
         oModel.setData(oData);
-        //		sap.ui.getCore().byId("list").setModel(oModel);
-        //		sap.ui.getCore().byId("table").setModel(oModel);
         sap.ui.getCore().setModel(oModel);
 
+        var oModel1 = new sap.ui.model.json.JSONModel(oData1);
+        oModel1.setData(oData1)
+        sap.ui.getCore().setModel(oModel1,"listpepe");
+        
 
     },
 
@@ -61,6 +88,24 @@ sap.ui.controller("app1.view1", {
     goToNextPage: function (oEvt) {
         app.to("pageid2")
 
+    },
+
+    openFragment: function(oEvt){
+        if(this.oFragment === undefined){
+            this.oFragment = sap.ui.jsfragment("app1.view1",this);
+            this.oFragment.open();
+        } else {
+            this.oFragment.open();
+        }
+
+        
+    },
+
+    liveChange1: function(oEvt){
+        var sVal = oEvt.getParameter("value");
+        var oFilter = new sap.ui.model.Filter("Name",sap.ui.model.FilterOperator.Contains,sVal);
+        var oBinding = oEvt.getSource().getBinding("items");
+        oBinding.filter([oFilter])
     },
 
     listPage: function (oEvt) {

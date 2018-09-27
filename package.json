@@ -12,6 +12,7 @@
     "@openui5/sap.m": "^1.58.2",
     "@openui5/sap.ui.core": "^1.58.2",
     "@openui5/sap.ui.layout": "^1.58.2",
+    "@types/jqueryui": "^1.12.4",
     "@types/openui5": "^1.40.2"
   }
 }
