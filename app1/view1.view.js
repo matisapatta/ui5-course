@@ -60,7 +60,7 @@ sap.ui.jsview("app1.view1", {
 						type: new sap.ui.model.type.String()
 					}
 					],
-					formatter:function(sName,sPlace){
+					formatter: function (sName, sPlace) {
 						return sName + ": " + sPlace;
 					}
 
@@ -248,10 +248,71 @@ sap.ui.jsview("app1.view1", {
 
 		/* Fin generic Tiles */
 
+		/* KPI Tile */
+
+		var oDinOTile = new sap.m.GenericTile({
+			header: "Dinosaur",
+			subheader: "Mountain",
+			tileContent: [
+				new sap.m.TileContent({
+					footer: "Rank",
+					content: [
+						new sap.m.NumericContent({
+							indicator: "Up",
+							value: 1,
+							valueColor: "Good"
+						})
+					]
+				})
+			]
+		})
+
+		var oElephantTile = new sap.m.GenericTile({
+			header: "Elephant",
+			subheader: "Forest",
+			tileContent: [
+				new sap.m.TileContent({
+					footer: "Rank",
+					content: [
+						new sap.m.NumericContent({
+							indicator: "Down",
+							value: 2,
+							valueColor: "Error"
+						})
+					]
+				})
+			]
+		})
+
+		var oDinoCT = new sap.m.CustomTile({
+			content: [
+				oDinOTile
+			]
+		})
+
+		var oElephantCT = new sap.m.CustomTile({
+			content: [
+				oElephantTile
+			]
+		})
+
+		var oTileContainer2 = new sap.m.TileContainer({
+			tiles:[
+				oDinoCT,
+				oElephantCT
+			]
+		})
+
+
+
+		/* Fin KPI Tile */
+
 		var oBtn2 = new sap.m.Button({
 			text: "Fragment",
 			press: [oController.openFragment, oController]
 		})
+
+
 
 		var oPage = new sap.m.Page({
 			title: "A simple app",
@@ -266,7 +327,8 @@ sap.ui.jsview("app1.view1", {
 				oGTile,
 				oList1,
 				oBtn2,
-				oList3
+				oList3,
+				oTileContainer2
 			]
 		});
 		return oPage;
